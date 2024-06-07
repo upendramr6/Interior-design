@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Startup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">InteriorBliss</div>
+        <ul>
+            <li class="links"><a href="#home">Home</a></li>
+            <li class="links"><a href="#services">Services</a></li>
+            <li class="links"><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="assets/image 2.jpg" alt="Interior Design">
+                <img id="slide-2" src="assets/image-1.jpg" alt="Interior Design">
+                <img id="slide-3" src="assets/image 3.jpg" alt="Interior Design">
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <section>
+        <h2 class="section__header">Benefits you get when using our services</h2>
+        <div class="benefits__grid">
+            <div class="benefits__card">
+                <div class="benefits__content">
+                    <h4>Best Quality</h4>
+                    <p>
+                        All of our furniture uses the best materials and choices of our
+                        customers.
+                    </p>
+                </div>
+            </div>
+            <div class="benefits__card">
+                <div class="benefits__content">
+                    <h4>Free Shipping</h4>
+                    <p>
+                        Free shipping every time you buy furniture from us without
+                        exception.
+                    </p>
+                </div>
+            </div>
+            <div class="benefits__card">
+                <div class="benefits__content">
+                    <h4>Warranty</h4>
+                    <p>
+                        Every time you buy our furniture products, you will get a warranty
+                        without exception.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="container">
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter Your Name">
+
+                <label for="phone number">Enter your Phone number</label>
+                <input type="text" id="phone" placeholder="Enter your Phone Number">
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" style="height: 125px;"
+                    placeholder="Enter Your Message"></textarea>
+                <input type="button" value="Submit" onclick="Send()">
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 InteriorBliss. All rights reserved.</p>
+    </footer>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function Send() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var message = document.getElementById("message").value;
+
+            var body = "Name: " + name + "<br/> Phone no: " + phone + "<br/>Message:" + message;
+           console.log(body)
+            Email.send({
+                SecureToken : "4647588b-7ba0-464a-8f59-999af084a1cb",
+                To: 'boostyourmath94@gmail.com',
+                From: "boostyourmath94@gmail.com",
+                Subject: "This is the subject",
+                Body: body
+            }).then(
+                message =>{
+                    if(message=='OK'){
+                        swal("Successfull!", "Your Message is Received!", "success");
+                    }
+                    else{
+                        swal("Something Wrong!", "Your Message is not Received!", "error"); 
+                    }
+                }
+            );
+
+        }
+    </script>
+</body>
+
+</html>
